@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Ute Rathmann</title>
+	<meta name="generator" content="TextMate http://macromates.com/">
+	<meta name="author" content="Eric Wahlforss">
+  <%= stylesheet_link_tag "general.css", :media => "all" %>
+  <%= javascript_include_tag "jquery-1.3.2.min" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag :defaults %>
+  <%= active_scaffold_includes %>
+  </head>
+<body>
+  <div id="header">
+    <div id="infos"><%= link_to "Vita",vita_url %> • <%= link_to "Presse",presse_url %> • <%= link_to "Kontakt",kontakt_url %></div>
+    <h1><%= link_to "Ute Rathmann", start_url %> • <span>Zeichnungen, Collagen, Kostüme &amp; Illustrationen</span></h1>
+  </div>
+  <div id="logo"></div>
+  <div id="main">
+    <%= yield %>
+  </div>
+</body>
+</html>

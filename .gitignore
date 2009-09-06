@@ -1,0 +1,13 @@
+*callgrind.out
+.DS_Store
+config/database.yml
+db/schema.rb
+db/development_structure.sql
+log/
+tmp/
+public/images/full
+public/images/thumbs
+public/images/active_scaffold/DO_NOT_EDIT
+public/javascripts/active_scaffold/DO_NOT_EDIT
+public/stylesheets/active_scaffold/DO_NOT_EDIT
+uuid.state

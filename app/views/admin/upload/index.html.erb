@@ -1,0 +1,33 @@
+<style type="text/css">
+  input,form,textarea {display:block;}
+</style>
+  <% form_for :image, :html => {:enctype => "multipart/form-data", :'accept-charset' => 'utf-8'}, :url => { :action => :create } do |f| %> 
+  <%= f.label "title" %>
+  <%= f.text_field 'title' %> 
+
+  <%= f.label "description ('coal on canvas')" %>
+  <%= f.text_field 'description' %> 
+
+  <%= f.label "size ('23*21cm')" %>
+  <%= f.text_field 'size' %>
+
+  <%= f.label "width (323)" %>
+  <%= f.text_field 'width' %> 
+
+  <%= f.label "height (450)" %>
+  <%= f.text_field 'height' %> 
+
+  <%= f.label "width_thumb (123)" %>
+  <%= f.text_field 'width_thumb' %> 
+
+  <%= f.label "height_thumb (100)" %>
+  <%= f.text_field 'height_thumb' %> 
+
+  <%= f.label "full size file (should have height 450px)" %>
+  <%= f.file_field 'full_size_image' %> 
+
+  <%= f.label "thumb size file (should have height 100px)" %>
+  <%= f.file_field 'thumb_size_image' %>
+
+  <%= submit_tag %> 
+  <% end %>
