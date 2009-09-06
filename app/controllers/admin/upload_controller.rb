@@ -5,11 +5,8 @@ class Admin::UploadController < ApplicationController
   end
   
   def create
-    # store the thumb and full image
-    #puts params[:image][:full_size_image]
-    
+    #fixme select what series to save in
     @image = Series.find(1).images.build(params[:image] || {})
-        
     @image.save!
     flash[:notice] = "Image uploaded!"
     redirect_to :action => 'index'
