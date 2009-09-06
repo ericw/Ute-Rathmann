@@ -1,6 +1,10 @@
 <style type="text/css">
   input,form,textarea {display:block;}
+  .flash {
+    color: green;
+  }
 </style>
+<div class="flash"><%=flash[:notice]%></div>
   <% form_for :image, :html => {:enctype => "multipart/form-data", :'accept-charset' => 'utf-8'}, :url => { :action => :create } do |f| %> 
   <%= f.label "title" %>
   <%= f.text_field 'title' %> 
