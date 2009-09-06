@@ -16,7 +16,7 @@ class Image < ActiveRecord::Base
   # save the full size image
   def full_size_image=(uploaded_file)
     name =  uploaded_file.original_filename
-    directory = "public/data"
+    directory = "public/images/full"
     # create the file path
     path = File.join(directory, name)
 
@@ -28,7 +28,7 @@ class Image < ActiveRecord::Base
   # save the full size image
   def thumb_size_image=(uploaded_file)
     name =  uploaded_file.original_filename
-    directory = "public/data"
+    directory = "public/images/thumbs"
     # create the file path
     path = File.join(directory, name)
 
