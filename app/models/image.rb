@@ -42,8 +42,8 @@ class Image < ActiveRecord::Base
   end
 
   def delete_images
-    File.delete("#{RAILS_ROOT}/public/images/full/#{@filename}") if File.exist?("#{RAILS_ROOT}/public/images/full/#{@filename}")
-    File.delete("#{RAILS_ROOT}/public/images/thumbs/#{@filename_thumb}") if File.exist?("#{RAILS_ROOT}/public/images/thumbs/#{@filename_thumb}")
+    File.delete("#{RAILS_ROOT}/public/images/full/#{self.filename}") if File.exist?("#{RAILS_ROOT}/public/images/full/#{self.filename}")
+    File.delete("#{RAILS_ROOT}/public/images/thumbs/#{self.filename_thumb}") if File.exist?("#{RAILS_ROOT}/public/images/thumbs/#{self.filename_thumb}")
   end
   
   def sanitize_filename(file_name)
