@@ -4,4 +4,7 @@
 <% end %>
 </ul>
 <h3><%= @image.series.title %> » <%= @image.title %> • <%= link_to "Zurück zum Übersicht", start_url %></h3>
-<img src="<%= @image.public_path %>" class="large">
+<div class="large" style="width:<%= @image.width %>px">
+  <img src="<%= @image.public_path %>" class="large" width="<%= @image.width %>" height="<%= @image.height %>" alt="<%= @image.title %>">
+  <div><%= @image.description %> <span><%= @image.size %></span></div>
+</div>

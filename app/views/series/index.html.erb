@@ -1,12 +1,18 @@
 <ul>
 <% @series.each do |s| %>
 <li>
-<h3><%= link_to s.title, s.images.first %></h3>
   <ul class="thumbs">
   <% s.images.each do |i| %>
     <li><% link_to(i) do %><img src="<%= i.public_thumb_path %>" width="<%= i.width_thumb %>" height="<%= i.height_thumb %>"><% end %></li>
   <% end %>
   </ul>
 </li>
+<h3><%= link_to s.title, s.images.first %></h3>
 <% end %>
 </ul>
+<div id="dock"></div>
+<h4>Nice sketches</h4>
+<div id="dock2"></div>
+<h4>Some more nice sketches</h4>
+
+<div id="front"></div>
