@@ -180,6 +180,15 @@ textarea {
   box-sizing: border-box;
 }
 
+input[type=text] {
+  font-family: arial;
+  font-size: 14px;
+  padding: 0.5em;
+  border: 7px solid #ddd;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 ul:after {
   content: ".";
   display: block;
