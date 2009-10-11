@@ -28,6 +28,12 @@ config.action_view.cache_template_loading            = true
 # config.threadsafe!
 
 ActionMailer::Base.delivery_method = :sendmail
+
+ActionMailer::Base.sendmail_settings = {
+  :location       => '/usr/sbin/sendmail',
+  :arguments      => '-i -t'
+}
+
   ActionMailer::Base.smtp_settings = {
   # :address          => "mail.mysite.com", #insert YOUR address here
   # :domain           => "mysite.com",
