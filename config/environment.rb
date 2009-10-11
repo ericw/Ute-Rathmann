@@ -39,16 +39,3 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
 end
-
-ActionMailer::Base.delivery_method = :sendmail
-  ActionMailer::Base.server_settings = {
-  :address          => "mail.mysite.com", #insert YOUR address here
-  :domain           => "mysite.com",
-  :port             => 25, 
-  :authentication   => :login,
-  :user_name        => "myusername", #insert YOUR username here
-  :password         => "mypassword" #insert YOUR password here
-    } 
-  ActionMailer::Base.perform_deliveries = true
-  ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.default_charset = "utf-8"

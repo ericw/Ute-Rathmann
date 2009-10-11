@@ -26,3 +26,16 @@ config.action_view.cache_template_loading            = true
 
 # Enable threaded mode
 # config.threadsafe!
+
+ActionMailer::Base.delivery_method = :sendmail
+  ActionMailer::Base.server_settings = {
+  :address          => "mail.mysite.com", #insert YOUR address here
+  :domain           => "mysite.com",
+  :port             => 25, 
+  :authentication   => :login,
+  :user_name        => "myusername", #insert YOUR username here
+  :password         => "mypassword" #insert YOUR password here
+    } 
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.default_charset = "utf-8"
