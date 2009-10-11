@@ -137,6 +137,10 @@ div.large div span {
   font-style: italic;
 }
 
+table td.year {
+  padding-right: 30px;
+}
+
 ul:after {
   content: ".";
   display: block;
