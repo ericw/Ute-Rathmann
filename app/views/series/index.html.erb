@@ -1,18 +1,179 @@
-<ul>
-<% @series.each do |s| %>
-<li>
-  <ul class="thumbs">
-  <% s.images.each do |i| %>
-    <li><% link_to(i) do %><img src="<%= i.public_thumb_path %>" width="<%= i.width_thumb %>" height="<%= i.height_thumb %>"><% end %></li>
-  <% end %>
-  </ul>
-</li>
-<h3><%= link_to s.title, s.images.first %></h3>
+<div class="series-container start">
+  <h1>Ute Rathmann</h1>
+  <h2>Zeichnungen Kostüme Collagen</h2>
+  <a href="#next" class="next">Weiter</a>
+</div>
+<% @series.each_with_index do |s,i| %>
+<div class="series-container" style="left:<%= i*1500 %>px;">
+  <div class="series" style="width: <%= s.images.first.width+294 %>px;">
+    <a href="#prev" class="prev">Prev</a>
+    <h3><%= s.title %> <span>2007-2009</span></h3>
+    <img src="<%= s.images.first.public_path %>" class="large" width="<%= s.images.first.width %>" height="<%= s.images.first.height %>" alt="<%= s.images.first.title %>">
+    <div class="sidebar">
+      <ul class="thumbs show">
+        <% s.images.each do |i| %>
+        <li><% link_to i, :data => "#{i.width},#{i.height},#{i.public_path},#{i.title},#{i.description},#{i.size},#{i.year}" do %><img src="<%= i.public_thumb_path %>" width="70" height="70"><% end %></li>
+          <% end %>
+      </ul>
+      <div class="info">
+        <h4><%= s.images.first.title %></h4>
+        <dl>
+          <dt>Technik</dt>
+          <dd><%= s.images.first.description %></dd>
+          <dt>Dimensionen</dt>
+          <dd><%= s.images.first.size %></dd>
+          <dt>Year</dt>
+          <dd><%= s.images.first.year %></dd>
+        </dl>
+      </div>
+      <div class="info">
+        <h4>Kaufen »</h4>
+      </div>
+    </div>
+    <a href="#next" class="next">Next</a>
+  </div>
+</div>
 <% end %>
-</ul>
-<div id="dock"></div>
-<h4>Nice sketches</h4>
-<div id="dock2"></div>
-<h4>Some more nice sketches</h4>
 
-<div id="front"></div>
+<div class="series-container vita" style="left:5000px">
+  <div class="page">
+    <a href="#prev" class="prev">Prev</a>
+    <h3>Vita</h3>
+
+    <table>
+    <tr>
+      <td class="year">1975</td><td>Geboren in Ratzeburg</td>
+    </tr>
+    <tr>
+    <td class="year">1994–1997</td><td>Ausbildung zur Herrenschneiderin</td>
+    </tr>
+    <tr>
+    <td class="year">1997–2002</td><td>Studium an der Kunsthochschule Berlin-Weißensee, Fachrichtung Mode-Design Abschluss: Diplom</td>
+    </tr>
+    <tr>
+    <td class="year">seit 2002</td><td>Tätig als freischaffende Künstlerin</td>
+    </tr>
+    <tr>
+    <td class="year">2003</td><td>Ernennung zur Meisterschülerin von Christine Perthen</td>
+    </tr>
+    <tr>
+    <td class="year">seit 2004</td><td>Lehrauftrag an der Kunsthochschule Berlin-Weißensee</td>
+    </tr>
+    <tr>
+    <td class="year">2006</td><td>Gastprofessur an der Kunsthochschule Berlin-Weißensee</td>
+    </tr>
+    <tr>
+    <td class="year">seit 2007</td><td>Fachlehrerin am Lette-Verein Berlin, FG Mode-Design</td>
+    </tr>
+    <tr>
+    <td class="year">seit 2008</td><td>Freischaffende Kostümbildnerin am Theater im Palais, Berlin Unter den Linden</td>
+    </tr>
+    </table>
+
+<!--    <h3>Einzel- und Gruppenausstellungen</h3>
+    <dl>
+      <dt>2001</dt>
+      <dd>„Weißenseer Fenster - Arten der Zeichnung“, Verlagsgebäude der Berliner Zeitung</dd>
+      <dt>2002</dt>
+      <dd>Galerie M in Berlin-Marzahn</dd>
+      <dt>2003</dt>
+      <dd>„Figur und Kleid“, Studio Bildende Kunst/ Werkstattgalerie,<br>
+      Kulturamt Lichtenberg von Berlin</dd>
+      <dt>2004</dt>
+      <dd>„Art Club“, Kunstverein Burgwedel/ Isernhagen<br>
+      Galerie Bilderwelten, Berlin- Prenzlauer Berg</dd>
+      <dt>2006</dt>
+      <dd>„Christine Perthen und Schüler“(Gedenkausstellung), Kunsthochschule Berlin- Weißensee<br>
+      „Anonyme Zeichner 2“, Galerie Blütenweiss, Berlin-Mitte<br>
+      „Kleid und Kostüm“, Handzeichnungen, Galerie in der Lithowerkstatt, Berlin-Treptow</dd>
+      <dt>2007</dt>
+      <dd>„Mode meets Malen - Modemiezen malen“, Merz, Schau!raum für Unikate, Berlin<br>
+      „Kunst trifft Mode“, Galerie k20, Berlin</dd>
+      <dt>2008</dt>
+      <dd>Plakat und Kostümentwürfe, Theater im Palais, Berlin „24“, Galerie k20, Berlin</dd>
+      <dt>2009</dt>
+      <dd>„Meine Verehrung“, Klötze und Schinken, Berlin<br>
+      „Das Schiele-Projekt“, Projektraum sieben, Berlin</dd>
+    </dl>-->
+    <a href="#next" class="next">Next</a>
+  </div>  
+</div>
+
+<div class="series-container presse" style="left:5000px">
+  <div class="page">
+    <a href="#prev" class="prev">Prev</a>
+    <h3>Presse</h3>
+
+    <blockquote>
+      <p>„Ute Rathmanns Zeichnungen hier sind ausschließlich vor dem Modell entstanden, vor der Natur (also nicht nach ihr). Doch die eher eindeutige Darstellung des Modells, des ganzen Gegenüber, hat sie aufgegeben zugunsten einer Mischform: Genaues im Ungenauen, sich Auflösenden. Manchmal gibt es sehr naturnahe Köpfe bei ihr, vereinzelt Hände, denen sich freie rhythmische Linien aus der Gegend des Informel bis zur Überlagerung nähern. Beinernes wie Körper, Schädel, zwingt sie zur „Maßtreue“, aber Gewand, Kleid, Stoff, Tuch, Mütze erlauben ihr, zeichnerisch auszuufern, entlassen sie in die totale graphische Freiheit – in die FREIE ZEICHNUNG, die unvernünftige, schönheitstrunkene, von jedem Zweck befreite.“</p>
+      <p class="credit">
+      <strong><a href="http://www.kh-berlin.de/index.php5?roleID=&amp;groupID=4&amp;personID=1109&amp;Action=showGroupPerson">Prof. Christine Perthen</a></strong><br>
+      Auszug aus einem Text für das Heft „Zeichnung“, eine Publikation der Kunsthochschule <a href="http://www.kh-berlin.de/">Berlin-Weißensee</a> (2002/2003)
+      </p>
+    </blockquote>
+
+<!--    <h4>Kleid und Kostüm</h4>
+
+    <p>Zentrales Thema in Ute Rathmanns künstlerischem Oeuvre ist der bekleidete, teils sogar kostümierte weibliche Körper. Dabei nutzt sie die große Bandbreite der Möglichkeiten, welche die Zeichnung bietet, und setzt die verschiedensten Stilmittel wie Andeutungen, Übertreibungen, Verfremdungen oder Reduzierungen ein. Expressiver Ausdruck und Poesie verschmelzen zu einer Einheit.<br>
+  Oft entstehen Serien, die sich neben den verschiedenen Techniken auch nach den unterschiedlichen Herangehensweisen, bzw. Ausgangspunkten untergliedern lassen (Naturstudien, Interpretationen fotografischer Vorlagen, freie Studien, usw.).<br>
+  Einige Arbeiten sind verrätselt und geheimnisvoll, andere hingegen naturalistisch und konkret. Gemeinsam ist allen, dass sie einen ausreichend großen Freiraum für die Phantasie des Betrachters lassen.</p>
+
+    <h4>Zur Serie „Rokoko“</h4>
+
+    <p>Im Mozart-Jahr 2006 entwickelte Ute Rathmann die Serie „Rokoko“, besonders angeregt durch die raffinierte und vielschichtige Bekleidung dieser Epoche.<br>
+  Die entsprechende Mischtechnik des filigranen Schichtens verschiedener Medien und Materialien auf einem Blatt hat Ute Rathmann seit Beginn ihrer künstlerischen Entwicklung immer weiter vorangetrieben. So entsteht mal ein flirrender, zart schwebender und poetischer Ausdruck und mal ein abstrakt-expressiver. Figuren lagern sich übereinander, nebeneinander. Aus der freien, abstrakten Form bilden sich konkrete, teils naturalistische Bereiche heraus. In den Arbeiten zu dieser Serie wurden von der Künstlerin zum ersten Mal Collagen als Untergründe eingesetzt, wodurch das Prinzip des Schichtens noch weiter entwickelt wird.<br>
+  Mit ihrem sowohl prachtvollen, als auch poetisch-zartem Ausdruck spiegelt die Serie „Rokoko“ den Geist der Epoche wider und ist doch zugleich ein Produkt der heutigen Zeit.</p>
+
+    <h4>Zur Serie „Engel“</h4>
+    <p>Die Serie „Engel“ entstand im Jahr 2007. Bei diesen Arbeiten tritt deutlich zutage, dass Ute Rathmann ihre ästhetische Auffassung an altmeisterlichen Studienblättern wie beispielsweise von Leonardo da Vinci orientiert. Vergilbungen, Risse und Verletzungen verstärken als Spuren der Vergangenheit in ihren Augen den visuellen Reiz. Diese Ästhetik findet sich in ihren überzeichneten und übermalten Collagen wieder.<br>
+  Ute Rathmann bewahrt sich in ihren Arbeiten stets die Möglichkeit, erneut in die Zeichnung einzugreifen, diese zu korrigieren und zu verändern. Dementsprechend wählt sie ihre Werkzeuge: Stifte, deren Strich wegzuradieren ist und Wasserfarben, die anlös- und auslöschbar sind. Das Papier muss ausreichend strapazierfähig sein, um den Prozess des Auf- und Abtragens auszuhalten. Erhaltene Spuren kann die Künstlerin umdeuten, verworfene Blätter zerreißt sie und fügt sie fragmentarisch zu einem neuen Untergrund zusammen.</p>
+
+    <h4>Das Schiele - Projekt</h4>
+    <p>Im Sommer 2008 fanden sich die drei bildenden Künstler Mechthild Ehmann (Plastik), Peter Schulz Leonhardt (Zeichnung und Grafik) und Ute Rathmann (Zeichnung) für ihr „Schiele – Projekt“ zusammen. Die dabei entstandenen Zeichnungen, Grafiken und Plastiken wurden im Juni 2009 erstmalig in der Galerie “Sieben“ in Friedenau präsentiert.</p>
+    <p>Inspiration war die gemeinsame Affinität für den expressionistischen Künstler der Jahrhundertwende Egon Schiele. Ausgehend von dessen großartigen figurativen Darstellungen stellten die drei Künstler seine Motive nach, um diese direkt vor der natur zu studieren und in der jeweils eigenen Handschrift zu formulieren. Ein weibliches Modell, dem bevorzugtem Körpertypus Schiele entsprechend mit langen, sichtbar definierten Gliedmaßen, wurde nach den zeichnerischen Vorlagen bekleidet und nahm die vorgegebene Haltung ein. Jeder der drei Künstler entwickelte dabei seine eigene Vorstellung. Die entstandenen Arbeiten lösen sich wieder vom Vorbild. Es entstanden künstlerisch eigenständige Werke. Die Spannbreite von drei sehr unterschiedlichen Handschriften bei gleicher Thematik und zusätzlich der direkte Vergleich zu Egon Schiele machen den großen visuellen Reiz der geplanten Ausstellung aus.<br>
+  Der Videokünstler Hans-Peter Lübke hat das Projekt mit der Kamera begleitet. Der entstandene Kurzfilm wurde parallel zur Ausstellung in der Galerie von Susanne Wehr gezeigt.<br><br></p>
+
+    <h4>„Das Kleid als Leinwand“</h4>
+    <blockquote>
+      <p>Ein Thema, das auch veranlasst, Bekleidung auf Flächen zurückzuführen. Kein Fall eines Materials mehr, nicht Fältelungen, Raffungen oder andere Verarbeitungen, sondern Reduktion auf einen Grundkörper, eine Art Kleidsynonym: Säule- Kegelabschnitt- Säule. Abgewickelt und plangelegt sind das auch Flächen. Vorderteil und Rückenteil sind im Modedesign die beiden Hauptansichten für Gestaltung.</br>
+  Ute Rathmann ist es hier gelungen, mit diesem Kleidsynonym, dieser Art Kleidurform, die zwei gültigen Hauptansichten des Mode-Designs mit der Bedeutsamkeit der 360 Ansichten jeder Skulptur, jedes Körpers, zu erweitern.<br>
+  Projektionen auf dem Kleid-Körper blieben für sie Anregung, Skizze, waren Zustand und Vorstadium.<br>
+  Ute Rathmanns Entscheidung, es nicht bei wechselnden Projektionen auf dem Kleidkörper zu belassen, also nicht temporär zu sein, war eine bewusste Entscheidung für der Gegenstand, für die Anwesenheit von sechs verschiedenen Kleidern nebeneinander, für Haptik, für tatsächlichen Farbauftrag, für Materialität, für eine Unveränderbarkeit, für das Unikat, für die Serie….</p>
+      <p class="credit"><strong>Prof. Christine Perthen</strong><br>
+      Berlin 20.10.2002</p>
+    </blockquote>-->
+    <a href="#next" class="next">Next</a>
+  </div>
+</div>
+
+<div class="series-container kontakt" style="left:5000px">
+  <div class="page" style="width: 350px">
+    <a href="#prev" class="prev">Prev</a>
+    <h3>Kontakt</h3>
+    <%= form_tag :action => 'send_contact_form'  %>
+
+        <h5>Name</h5>
+        <%= text_field "author", "name" %>
+
+        <h5>E-Mail</h5>
+        <%= text_field "author", "email" %>
+
+        <h5>Nachricht</h5>
+        <%= text_area    "author", "message" %><br/>
+        <div>
+          <%= submit_tag "Schicken" %>
+        </div>
+    </form>
+    <div class="info">
+      <h4>Ute Rathmann</h4>
+      <p>
+        <strong>Mail</strong> <a href="mailto:ute@uterathmann.com">ute@uterathmann.com</a><br>
+        <strong>Tel</strong> 01577 - 395 79 59
+      </p>
+      <p>
+        Alle Bilder © Ute Rathmann 2009<br>
+        Alle Rechte vorbehalten / All rights reserved
+      </p>
+    </div>
+  </div>
+</div>

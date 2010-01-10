@@ -16,10 +16,15 @@
   </head>
 <body>
   <div id="header">
-    <div id="infos"><%= link_to "Vita",vita_url %> ✭ <%= link_to "Presse",presse_url %> ✭ <%= link_to "Kontakt",kontakt_url %></div>
-    <h1><%= link_to "Ute Rathmann", start_url %><span> ✭ Zeichnungen, Collagen, Kostüme &amp; Illustrationen</span></h1>
+    <div id="pos-head"></div>
+    <div id="header-inner">
+      <div id="infos"><%= link_to "Kontakt",kontakt_url, :class => "kontakt" %> <%= link_to "Presse",presse_url, :class => "presse" %> <%= link_to "Vita",vita_url, :class => "vita" %></div>
+      <a href="#startseite" class="start">Startseite</a>
+      <% @series.each_with_index do |s,i| %>
+        <a class="series-link" href="#<%= i+1 %>"><%= i+1 %> <span><%= truncate(s.title,15) %></span></a>
+      <% end %>
+    </div>
   </div>
-  <div id="logo"></div>
   <div id="main">
     <%= yield %>
   </div>
