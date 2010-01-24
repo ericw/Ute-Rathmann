@@ -81,11 +81,11 @@ $(function() {
     $("<img height='450'/>")
       .css({opacity:0})
       .attr("src",args[2])
+      .animate({width:args[0],height:args[1]},100)
       .load(function() {
         clearTimeout(timer);
         $img.find("div").remove();
         $img.find("img").animate({opacity:1},500);
-        $img.find("img").animate({width:args[0],height:args[1]},"fast");
       })
       .appendTo($img);
     
@@ -149,6 +149,7 @@ $(function() {
 
       var self = this;
 
+      // wait until stuff is loaded before fading in
       $(window).load(function() {
         $(self).animate({opacity: 1.0, width: $(self).data("width")}, 800, "easeInBack",callback);
       })
