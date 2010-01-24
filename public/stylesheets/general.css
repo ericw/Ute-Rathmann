@@ -5,8 +5,11 @@ body {
   margin: 0;
   line-height: 1.5;
   overflow: hidden;
-  background: white url(/images/bg-1.jpg) repeat-x 700px 100px;
+  background: white url(/images/bg-3.jpg) -200px -140px;
+  /*background: white url(/images/bg-1.jpg) repeat-x 700px 100px;*/
   color: #555;
+  -moz-user-select: none;
+  -khtml-user-select : none;
 }
 
 #main {
@@ -16,13 +19,14 @@ body {
 #header {
   position : fixed;
   width: 100%;
-  background: #686868;
+  background: #999;
   color: white;
   font-size: 12px;
-  top: 0;
+  top: -20px;
   left: 0;
   height: 20px;
   z-index : 1000;
+  overflow: hidden;
 }
 
 #header-inner {
@@ -45,6 +49,9 @@ body {
   text-align: center;
   -webkit-transition: background-color .3s ease-out,color .3s ease-out;
   -moz-transition: background-color .3s ease-out,color .3s ease-out;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 #header a span {
@@ -256,7 +263,7 @@ img {
 
 .series-container {
   width: 1000px;
-  height: 100px;
+  padding: 0 0 500px 0;
   position: absolute;
 }
 
@@ -266,11 +273,65 @@ img {
   margin: 20px auto;
 }
 
-  img.large {
+.large-image {
+  position: absolute;
+  left: 0px;
+  background: #f6f6f6;
+  border: 12px solid #f6f6f6;
+  height: 450px;
+}
+
+  .throbber {
     position: absolute;
-    left: 0px;
-    border: 12px solid #f6f6f6;
+    margin: -18px 0 0 -18px;
+    top: 50%;
+    left: 50%;
+    opacity: 0.95;
+    padding: 6px;
+    background: white;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
   }
+    .throbber div {
+      background: url(/images/throbber.gif) white;
+      width: 24px;
+      height: 24px;      
+    }
+
+.more-info {
+  display: block;
+  width: 88px;
+  height: 50px;
+  background: url(/images/arrow-down-small.png);
+  text-indent: -99999px;
+  margin: 50px auto;
+  opacity: 0.7;
+}
+
+.back {
+  display: block;
+  width: 88px;
+  height: 50px;
+  background: url(/images/arrow-up-small.png);
+  text-indent: -99999px;
+  margin: 50px auto 500px auto;
+  opacity: 0.7;
+}
+
+.series-info {
+  top: 1500px;
+  left: 50%;
+  width: 600px;
+  margin: 0px 0 500px -300px;
+  position: absolute;
+  padding: 30px 0 0 0;
+}
+
+.series-info img {
+  float: right;
+  margin: 0 0 1em 1em;
+  border: 10px solid #F6F6F6;
+}
 
 table td.year {
   padding-right: 30px;
@@ -335,6 +396,10 @@ textarea:focus {
   border-color: #aaa;
 }
 
+input,textarea {
+  color: #555;
+}
+
 input[type=text] {
   font-family: arial;
   font-size: 14px;
@@ -357,6 +422,12 @@ input[type=text]:focus {
 
 form div {
   text-align : right;
+}
+
+form div strong {
+  font-size: 12px;
+  color: #555;
+  display: none;
 }
 
 input[type=submit] {

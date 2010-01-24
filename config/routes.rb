@@ -10,6 +10,8 @@ ActionController::Routing::Routes.draw do |map|
   # start
   map.start "/", :controller => 'series', :action => 'index'
 
+  map.kontakt_form "/kontakt-send", :controller => 'pages', :action => 'send_contact_form'
+
   map.with_options :controller => 'pages' do |route|
     route.vita "/vita", :action => 'vita'
     route.presse "/presse", :action => 'presse'

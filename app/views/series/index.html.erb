@@ -7,8 +7,9 @@
 <div class="series-container" style="left:<%= i*1500 %>px;">
   <div class="series" style="width: <%= s.images.first.width+294 %>px;">
     <a href="#prev" class="prev">Prev</a>
-    <h3><%= s.title %> <span>2007-2009</span></h3>
-    <img src="<%= s.images.first.public_path %>" class="large" width="<%= s.images.first.width %>" height="<%= s.images.first.height %>" alt="<%= s.images.first.title %>">
+    <h3><%= s.title %> <span><%= s.year %></span></h3>
+    <div class="large-image">
+    </div>
     <div class="sidebar">
       <ul class="thumbs show">
         <% s.images.each do |i| %>
@@ -22,16 +23,26 @@
           <dd><%= s.images.first.description %></dd>
           <dt>Dimensionen</dt>
           <dd><%= s.images.first.size %></dd>
-          <dt>Year</dt>
+          <dt>Jahr</dt>
           <dd><%= s.images.first.year %></dd>
         </dl>
       </div>
       <div class="info">
         <h4>Kaufen »</h4>
       </div>
+      <% if s.series_info %>
+      <a href="#more" class="more-info">More info</a>
+      <% end %>
     </div>
     <a href="#next" class="next">Next</a>
   </div>
+  <% if s.series_info %>
+  <div class="series-info">
+    <h3><%= s.series_info.title %></h3>
+    <div><%= s.series_info.description %></div>
+    <a href="#more" class="back">More info</a>
+  </div>
+  <% end %>
 </div>
 <% end %>
 
@@ -150,8 +161,7 @@
   <div class="page" style="width: 350px">
     <a href="#prev" class="prev">Prev</a>
     <h3>Kontakt</h3>
-    <%= form_tag :action => 'send_contact_form'  %>
-
+    <form id="contact-form">
         <h5>Name</h5>
         <%= text_field "author", "name" %>
 
@@ -161,7 +171,7 @@
         <h5>Nachricht</h5>
         <%= text_area    "author", "message" %><br/>
         <div>
-          <%= submit_tag "Schicken" %>
+          <strong>Ihre Nachricht wurde gesendet</strong> <%= submit_tag "Schicken" %>
         </div>
     </form>
     <div class="info">
