@@ -25,7 +25,7 @@ $(function() {
   
   prepareForDisplay();
   $(window).resize(prepareForDisplay);
-    
+  
   $("ul.thumbs li:first-child a").addClass("selected");
   
   $("a.start,a.vita,a.presse,a.kontakt").click(function() {
@@ -61,7 +61,7 @@ $(function() {
     $("ul.thumbs li:first-child a").click();
 
     // if there is a hash image-x-series-x then navigate there
-    if(window.location.hash != null) {
+    if(window.location.hash.search(/image/) != -1) {
       var infos = window.location.hash.split("-");
       var imgId = infos[1];
       var seriesId = infos[3];
