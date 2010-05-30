@@ -68,6 +68,7 @@ $(function() {
       $("#header").animate({top:0});
       $("a#img-"+imgId).click();
       scrollTo($("#series-"+ seriesId));
+      $("div.throbber").remove();
     }
 
   });
