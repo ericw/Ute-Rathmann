@@ -4,10 +4,10 @@
     <meta name="title" content="Ute Rathmann – <%= @image.title %>" />
     <meta name="medium" content="image" />
     <meta name="description" content="<%= @image.description %>" />
-    <link rel="image_src" href="<%= @image.public_thumb_path %>" / >
+    <link rel="image_src" href="http://uterathmann.com<%= @image.public_thumb_path %>" / >
   </head>
   <body>
-  <script>
+  <script type="text/javascript">
     window.location.replace("http://uterathmann.com/#image-<%= @image.id %>-series-<%= @image.series.id %>");
   </script>
 <!--  <div class="large" style="width:<%= @image.width %>px">
