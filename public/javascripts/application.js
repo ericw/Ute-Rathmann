@@ -168,6 +168,40 @@ $(function() {
     }
     return false;
   });
+  
+  
+  
+  // buy interest
+  $(".buy-link").click(function() {
+    var data = $(this).parents(".sidebar").find("li a.selected").attr("data").split(",");
+    $("#buy_name,#buy_email,#buy_message").val("");
+    $("#buy-interest p span:first").text(data[3]);    
+    $("#buy-interest").fadeIn(function() {
+      $("#buy-interest #buy_id").val(data[7]);
+      $("#buy-interest #buy_title").val(data[3]);
+      $("#buy-interest #buy_name").focus();
+    });
+    return false;
+  });
+  
+  $("#buy-form").submit(function() {
+    if($("#buy_name").val() != "" && $("#buy_email").val() != "" && $("#buy_message").val()) {
+      $.post("/images/buy",{"buy[id]":$("#buy_id").val(),"buy[title]":$("#buy_title").val(),"buy[name]":$("#buy_name").val(),"buy[email]":$("#buy_email").val(),"buy[message]":$("#buy_message").val()},function() {
+        $("#buy-interest").fadeOut();
+      });      
+    }
+    return false;
+  });
+
+  $("#buy-interest .close, #buy-interest div a").click(function() {
+    $("#buy-interest").fadeOut();
+    return false;
+  });
+  
+  // $(".series-container.vita .more-info").click(function() {
+  //   scrollDown($("#ausstellungen"));
+  //   return false;    
+  // });
 
   // function fadeInImages() {
   //   var cnt = 0;

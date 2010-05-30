@@ -19,7 +19,7 @@ body {
 #header {
   position : fixed;
   width: 100%;
-  background: #999;
+  background: rgba(0, 0, 0, 0.7);
   color: white;
   font-size: 12px;
   top: -20px;
@@ -40,6 +40,7 @@ body {
   background: white;
   top: 18px;
   height: 2px;
+  z-index: 100;
 }
 
 #header a {
@@ -52,6 +53,7 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  height: 20px;
 }
 
 #header a span {
@@ -72,6 +74,7 @@ body {
 
 #header a:hover {
   color: white;
+  background: #a4a4a4;
 }
 
 h1 {
@@ -96,6 +99,7 @@ h3 {
   margin: 0;
   color: #777;
   letter-spacing: -1px;
+  padding: 0 12px 0 12px;
 }
 
 h3 span {
@@ -133,19 +137,22 @@ h3 span {
   display: block;
   text-indent: -99999px;
   background: url(/images/arrow-prev-small.png);
-  width: 50px;
-  height: 88px;
+  -moz-background-size: 100%;
+  width: 25px;
+  height: 44px;
   position: absolute;
   margin: 0 0 0 -90px;
-  top: 220px;
+  top: 4px;
   left: 0%;
   opacity: 0.7;  
 }
 
 .next {
   background: url(/images/arrow-next-small.png);
+  -moz-background-size: 100%;
   left: 100%;
   margin: 0 0 0 40px;
+
 }
 
 .start .next {
@@ -192,10 +199,12 @@ a:hover {
   width: 258px;
   position: absolute;
   right: 0px;
+  height: 474px;
+  background: white;
 }
 
 .info {
-  background: #f6f6f6;  
+  background: white;  
   font-size: 12px;
   padding: 12px;
   margin: 0 0 12px 0;
@@ -222,7 +231,7 @@ a:hover {
   }
   
 ul.show {
-  background: #f6f6f6;
+  background: white;
   padding: 12px 0 0 12px;
 }
 
@@ -270,14 +279,14 @@ img {
 .series {
   position: relative;
   height: 400px;
-  margin: 20px auto;
+  margin: 50px auto;
 }
 
 .large-image {
   position: absolute;
   left: 0px;
   background: #f6f6f6;
-  border: 12px solid #f6f6f6;
+  border: 12px solid white;
   height: 450px;
 }
 
@@ -300,12 +309,20 @@ img {
 
 .more-info {
   display: block;
-  width: 88px;
-  height: 50px;
+  width: 44px;
+  height: 25px;
   background: url(/images/arrow-down-small.png);
   text-indent: -99999px;
-  margin: 50px auto;
+  margin-left: -22px;
+  left: 50%;
+  bottom: 12px;
+  position: absolute;
   opacity: 0.7;
+  -moz-background-size: 100%;
+}
+
+.page .more-info {
+  bottom: -80px;
 }
 
 .back {
@@ -321,8 +338,8 @@ img {
 .series-info {
   top: 1500px;
   left: 50%;
-  width: 600px;
-  margin: 0px 0 500px -300px;
+  width: 640px;
+  margin: 0px 0 500px -320px;
   position: absolute;
   padding: 30px 0 0 0;
 }
@@ -333,16 +350,44 @@ img {
   border: 10px solid #F6F6F6;
 }
 
+.vita-table {
+  margin-top: 40px;
+  background: white;
+  border: 12px solid #F6F6F6;
+  padding: 20px;
+  /*-moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.07);*/
+}
+
+.vita-table.ausstellungen {
+  margin-top: 20px;
+}
+
+.vita-table.ausstellungen td {
+  font-size: 12px;
+}
+
+.vita-table.ausstellungen td.year {
+  font-size: 14px;
+  width: 50px;
+}
+
 table td.year {
+  vertical-align: top;
   padding-right: 30px;
   width: 90px;
   font-style: italic;
+  font-weight: bold;
+}
+
+table td {
+  font-size: 15px;
 }
 
 blockquote p {
   border-left: 7px solid #ddd;
   font-style: italic;
   padding-left: 1em;
+  font-size: 13px;
 }
 
 blockquote p.credit {
@@ -350,6 +395,10 @@ blockquote p.credit {
   font-size: 12px;  
   border-left: 7px solid transparent;
   padding-left: 1em;
+}
+
+.series-container .links {
+  font-size: 13px;
 }
 
 .page {
@@ -458,4 +507,49 @@ ul:after {
   height: 0;
   clear: both;
   visibility: hidden;  
+}
+
+h4 a, #buy-interest div a {
+  -webkit-transition: border-color .7s linear;
+  -moz-transition: border-color .7s linear;
+  border-bottom: 2px solid transparent;
+}
+
+h4 a:hover, #buy-interest div a:hover {
+  border-bottom: 2px solid #555;
+}
+
+#buy-interest {
+  display: none;
+  position: fixed;
+  width: 300px;
+  margin: 50px 0 0 -150px;
+  background: white;
+  left: 50%;
+  padding: 10px;
+  border: 5px solid rgba(0,0,0,0.1);
+  -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+}
+
+#buy-interest h4 {
+  margin: 0;
+  color: #555;
+}
+
+.close {
+  background: url(/images/cross.png);
+  width: 21px;
+  height: 21px;
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+#ausstellungen {
+  margin-top : 200px;
+}
+
+.series-info dl {
+  font-size: 12px;
 }
