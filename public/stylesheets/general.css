@@ -353,7 +353,7 @@ img {
 .vita-table {
   margin-top: 40px;
   background: white;
-  border: 12px solid #F6F6F6;
+  border: 12px solid white;
   padding: 20px;
   /*-moz-box-shadow: 2px 2px 10px rgba(0,0,0,0.07);*/
 }
