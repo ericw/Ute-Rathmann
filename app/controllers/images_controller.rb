@@ -2,6 +2,7 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
+    render :layout => false
   end
 
   def buy

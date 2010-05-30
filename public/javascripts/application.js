@@ -25,7 +25,7 @@ $(function() {
   
   prepareForDisplay();
   $(window).resize(prepareForDisplay);
-  
+    
   $("ul.thumbs li:first-child a").addClass("selected");
   
   $("a.start,a.vita,a.presse,a.kontakt").click(function() {
@@ -59,6 +59,17 @@ $(function() {
   // lazy load all images after main content has loaded
   $(window).load(function() {
     $("ul.thumbs li:first-child a").click();
+
+    // if there is a hash image-x-series-x then navigate there
+    if(window.location.hash != null) {
+      var infos = window.location.hash.split("-");
+      var imgId = infos[1];
+      var seriesId = infos[3];
+      $("#header").animate({top:0});
+      $("a#img-"+imgId).click();
+      scrollTo($("#series-"+ seriesId));
+    }
+
   });
   
   $("ul.thumbs a").click(function() {
@@ -170,6 +181,13 @@ $(function() {
   });
   
   
+  
+  // share
+  $(".share-link").click(function() {
+    var img = $(this).parents(".sidebar").find(".thumbs a.selected");
+    window.open('http://facebook.com/sharer.php?u=http%3A%2F%2Futerathmann.com' + encodeURIComponent(img.attr('href')), "_blank");
+    return false;
+  });
   
   // buy interest
   $(".buy-link").click(function() {

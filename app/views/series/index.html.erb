@@ -4,7 +4,7 @@
   <a href="#next" class="next">Weiter</a>
 </div>
 <% @series.each_with_index do |s,i| %>
-<div class="series-container" style="left:<%= i*1500 %>px;">
+<div class="series-container" id="series-<%= s.id %>" style="left:<%= i*1500 %>px;">
   <div class="series" style="width: <%= s.images.first.width+294 %>px;">
     <a href="#prev" class="prev">Prev</a>
     <h3><%= s.title %> <span><%= s.year %></span></h3>
@@ -13,7 +13,7 @@
     <div class="sidebar">
       <ul class="thumbs show">
         <% s.images.each do |i| %>
-        <li><% link_to i, :data => "#{i.width},#{i.height},#{i.public_path},#{i.title},#{i.description},#{i.size},#{i.year},#{i.id}" do %><img src="<%= i.public_thumb_path %>" width="70" height="70"><% end %></li>
+        <li><% link_to i, :id => "img-#{i.id}", :data => "#{i.width},#{i.height},#{i.public_path},#{i.title},#{i.description},#{i.size},#{i.year},#{i.id}" do %><img src="<%= i.public_thumb_path %>" width="70" height="70"><% end %></li>
           <% end %>
       </ul>
       <div class="info">
@@ -28,7 +28,7 @@
         </dl>
       </div>
       <div class="info">
-        <h4><a href="#buy" class="buy-link">Kaufinteresse »</a> | Share » </h4>
+        <h4><a href="#buy" class="buy-link">Kaufinteresse »</a> | <a href="#share" class="share-link">Share »</a> </h4>
       </div>
       <% if s.series_info %>
       <a href="#more" class="more-info">More info</a>
