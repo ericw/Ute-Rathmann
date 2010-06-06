@@ -1,5 +1,4 @@
 $(function() {
-  
   // header
   var $posHead = $("#pos-head");
   var pageCount = $(".series-container").length;
@@ -7,6 +6,9 @@ $(function() {
 
   // prepare the container blocks
   function prepareForDisplay() {
+    if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+      $("body").css({'overflowX':'auto'});
+    };
     headerWidth = $("#header").width();
     $posHead.css("left",Math.floor(($(window).scrollLeft()/$(document).width())*headerWidth));
     $posHead.width(headerWidth/pageCount);
@@ -18,8 +20,8 @@ $(function() {
         .css("left",($("body").width())*i);
     });    
   }
-    
-  $(window).scroll(function() {
+
+  $(document).scroll(function() {
     $posHead.css("left",Math.floor(($(window).scrollLeft()/$(document).width())*headerWidth));
   });
   
@@ -134,9 +136,12 @@ $(function() {
     $("#header").animate({top:0});
   });
 
-  if($(window).scrollLeft() != 0) {
-    $("#header").animate({top:0});
-  }
+  // hacky solution to check where the scroll pos is and show nav bar if not 0
+  setTimeout(function() {
+    if($(window).scrollLeft() != 0) {
+      $("#header").animate({top:0});
+    }    
+  },700);
   
   $(".more-info").click(function() {
     scrollDown($(this).parents(".series-container").find(".series-info"));
