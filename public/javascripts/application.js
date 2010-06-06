@@ -126,6 +126,12 @@ $(function() {
     
     return false;
   });
+
+  // links under presse
+  $(".presse p.links a").click(function() {
+    scrollTo($($(this).attr("href")));
+    return false;
+  });
   
   $("a.next, a[href=#next], .start h1, .start h2").click(function() {
     scrollTo($(this).parents("div.series-container").next());
@@ -141,7 +147,7 @@ $(function() {
     if($(window).scrollLeft() != 0) {
       $("#header").animate({top:0});
     }    
-  },700);
+  },1000);
   
   $(".more-info").click(function() {
     scrollDown($(this).parents(".series-container").find(".series-info"));
