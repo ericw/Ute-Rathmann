@@ -407,14 +407,14 @@ table td {
   font-size: 15px;
 }
 
-blockquote p {
+.series-info blockquote p {
   border-left: 7px solid #ddd;
   font-style: italic;
   padding-left: 1em;
   font-size: 13px;
 }
 
-blockquote p.credit {
+.series-info blockquote p.credit {
   font-style: normal;
   font-size: 12px;  
   border-left: 7px solid transparent;
