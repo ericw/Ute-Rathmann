@@ -13,7 +13,7 @@
     <div class="sidebar">
       <ul class="thumbs show">
         <% s.images.each do |i| %>
-        <li><% link_to i, :id => "img-#{i.id}", :data => "#{i.width},#{i.height},#{i.public_path},#{i.title},#{i.description},#{i.size},#{i.year},#{i.id}" do %><img src="<%= i.public_thumb_path %>" width="70" height="70"><% end %></li>
+        <li><% link_to i, :id => "img-#{i.id}", :data => "#{i.width},#{i.height},#{i.public_path},#{i.title},#{i.description},#{i.size},#{i.year},#{i.id},#{i.kaufen}" do %><img src="<%= i.public_thumb_path %>" width="70" height="70"><% end %></li>
           <% end %>
       </ul>
       <div class="info">
@@ -21,14 +21,14 @@
         <dl>
           <dt>Technik</dt>
           <dd><%= s.images.first.description %></dd>
-          <dt>Dimensionen</dt>
-          <dd><%= s.images.first.size %></dd>
+          <dt class="<% if s.images.first.size.blank? %>hidesize<% end %> size">Dimensionen</dt>
+          <dd class="<% if s.images.first.size.blank? %>hidesize<% end %> size"><%= s.images.first.size %></dd>
           <dt>Jahr</dt>
           <dd><%= s.images.first.year %></dd>
         </dl>
       </div>
       <div class="info">
-        <h4><a href="#buy" class="buy-link">Kaufinteresse »</a> | <a href="#share" class="share-link">Share »</a> </h4>
+        <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufinteresse »</a> | </span><a href="#share" class="share-link">Share »</a> </h4>
       </div>
       <% if s.series_info %>
       <a href="#more" class="more-info">More info</a>
@@ -125,7 +125,14 @@
           <tr>
             <td class="year">2009</td>
             <td>„Meine Verehrung“, Klötze und Schinken, Berlin<br>
-            „Das Schiele-Projekt“, Projektraum sieben, Berlin</td>
+            „Das Schiele-Projekt“, Projektraum sieben, Berlin<br>
+            „Ein Sommernachtstraum“, 30 Links, Berlin<br>
+            „The Big Draw“, Lange Nacht der Museen, Kunstgewerbemuseum, Berlin</td>
+          </tr>
+          <tr>
+            <td class="year">2010</td>
+            <td>„Handzeichnugen und Druckgraphik“, Studio Bildende Kunst, Berlin<br>
+            „Auge, Hand und Sinne“, Atelier Laubbach, Ostrach-Laubbach</td>
           </tr>
         </table>
       </div>

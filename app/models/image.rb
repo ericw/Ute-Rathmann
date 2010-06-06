@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
   belongs_to :series
   acts_as_list :scope => :series
 
-  validates_presence_of   :title, :description, :size
+  validates_presence_of   :title, :description
   validates_numericality_of :width, :height, :width_thumb, :height_thumb
 
   before_destroy  :delete_images

@@ -85,6 +85,14 @@ $(function() {
     
     $img.html("");
     
+    // hide buy link if kaufen=false
+    var $buyLinkHide = $series.find("span.hide-buy-link");
+    args[8] == 'false' ? $buyLinkHide.addClass("hidden") : $buyLinkHide.removeClass("hidden");
+
+    // hide dimensions if not set
+    var $sizeInfo = $series.find(".size");
+    args[5].length == 0 ? $sizeInfo.addClass("hidesize") : $sizeInfo.removeClass("hidesize");
+    
     // show throbber after 100ms wait for image to load
     var timer = setTimeout(function() {
       $("<div class='throbber'><div></div></div>").appendTo($img);

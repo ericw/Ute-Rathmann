@@ -5,9 +5,10 @@ body {
   margin: 0;
   line-height: 1.5;
   overflow: hidden;
-  background: white url(/images/bg-3.jpg) -200px -140px;
+  /*background: white url(/images/bg-3.jpg) -200px -140px;*/
   /*background: white url(/images/bg-1.jpg) repeat-x 700px 100px;*/
   color: #555;
+  background: white;
   -moz-user-select: none;
   -khtml-user-select : none;
 }
@@ -341,7 +342,11 @@ img {
   width: 640px;
   margin: 0px 0 500px -320px;
   position: absolute;
-  padding: 30px 0 0 0;
+  padding: 50px 0 0 0;
+}
+
+.series-info div {
+  margin: 0 12px 0 12px;
 }
 
 .series-info img {
@@ -552,4 +557,16 @@ h4 a:hover, #buy-interest div a:hover {
 
 .series-info dl {
   font-size: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hidesize {
+  display: none;
+}
+
+.info dd {
+  margin-left: 95px;
 }
