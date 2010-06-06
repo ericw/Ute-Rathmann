@@ -91,7 +91,7 @@ $(function() {
 
     // hide dimensions if not set
     var $sizeInfo = $series.find(".size");
-    args[5].length == 0 ? $sizeInfo.addClass("hidesize") : $sizeInfo.removeClass("hidesize");
+    args[5].length == 0 ? $sizeInfo.addClass("hidden") : $sizeInfo.removeClass("hidden");
     
     // show throbber after 100ms wait for image to load
     var timer = setTimeout(function() {

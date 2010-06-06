@@ -20,7 +20,7 @@ body {
 #header {
   position : fixed;
   width: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: #333;
   color: white;
   font-size: 12px;
   top: -20px;
@@ -33,6 +33,10 @@ body {
 #header-inner {
   position: absolute;
   width: 100%;
+}
+
+#header-inner a span {
+  -text-overflow: ellipsis;
 }
 
 #pos-head {
@@ -53,6 +57,7 @@ body {
   -moz-transition: background-color .3s ease-out,color .3s ease-out;
   white-space: nowrap;
   text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
   overflow: hidden;
   height: 20px;
 }
@@ -560,10 +565,6 @@ h4 a:hover, #buy-interest div a:hover {
 }
 
 .hidden {
-  display: none;
-}
-
-.hidesize {
   display: none;
 }
 

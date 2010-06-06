@@ -19,7 +19,7 @@
     <div id="header-inner">
       <a href="#startseite" class="start">Startseite</a>
       <% @series.each_with_index do |s,i| %>
-        <a class="series-link" href="#<%= i+1 %>"><%= i+1 %> <span><%= truncate(s.title,:length => 15) %></span></a>
+        <a class="series-link" href="#<%= i+1 %>"><%= i+1 %> <span><%= s.title %></span></a>
       <% end %>
       <%= link_to "Vita",vita_url, :class => "vita" %>
       <%= link_to "Presse",presse_url, :class => "presse" %> 

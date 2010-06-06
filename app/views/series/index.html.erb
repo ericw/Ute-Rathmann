@@ -21,14 +21,14 @@
         <dl>
           <dt>Technik</dt>
           <dd><%= s.images.first.description %></dd>
-          <dt class="<% if s.images.first.size.blank? %>hidesize<% end %> size">Dimensionen</dt>
-          <dd class="<% if s.images.first.size.blank? %>hidesize<% end %> size"><%= s.images.first.size %></dd>
+          <dt class="<% if s.images.first.size.blank? %>hidden<% end %> size">Dimensionen</dt>
+          <dd class="<% if s.images.first.size.blank? %>hidden<% end %> size"><%= s.images.first.size %></dd>
           <dt>Jahr</dt>
           <dd><%= s.images.first.year %></dd>
         </dl>
       </div>
       <div class="info">
-        <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufinteresse »</a> | </span><a href="#share" class="share-link">Share »</a> </h4>
+        <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufen »</a> | </span><a href="#share" class="share-link">Share bei Facebook »</a> </h4>
       </div>
       <% if s.series_info %>
       <a href="#more" class="more-info">More info</a>
@@ -99,8 +99,7 @@
           </tr>
           <tr>
             <td class="year">2003</td>
-            <td>„Figur und Kleid“, Studio Bildende Kunst/ Werkstattgalerie,<br>
-            Kulturamt Lichtenberg von Berlin</td>
+            <td>„Figur und Kleid“, Studio Bildende Kunst, Kulturamt Lichtenberg von Berlin</td>
           </tr>
           <tr>
             <td class="year">2004</td>
@@ -110,29 +109,30 @@
           <tr>
             <td class="year">2006</td>
             <td>„Christine Perthen und Schüler“(Gedenkausstellung), Kunsthochschule Berlin- Weißensee<br>
-            „Anonyme Zeichner 2“, Galerie Blütenweiss, Berlin-Mitte<br>
+            „Anonyme Zeichner 2“, <a href="http://www.anke-becker.de/anonyme_zeichner.576.0.html">Galerie Blütenweiss, Berlin-Mitte</a><br>
             „Kleid und Kostüm“, Handzeichnungen, Galerie in der Lithowerkstatt, Berlin-Treptow</td>
           </tr>
           <tr>
             <td class="year">2007</td>
-            <td>„Mode meets Malen - Modemiezen malen“, Merz, Schau!raum für Unikate, Berlin<br>
+            <td>„Mode meets Malen - Modemiezen malen“, <a href="http://www.kloetzeundschinken.de/">Merz, Schau!raum für Unikate, Berlin</a><br>
             „Kunst trifft Mode“, Galerie k20, Berlin</td>
           </tr>
           <tr>
             <td class="year">2008</td>
-            <td>Plakat und Kostümentwürfe, Theater im Palais, Berlin „24“, Galerie k20, Berlin</td>
+            <td>Plakat und Kostümentwürfe, <a href="http://www.theater-im-palais.de/">Theater im Palais, Berlin</a><br>
+            „24“, Galerie k20, Berlin</td>
           </tr>
           <tr>
             <td class="year">2009</td>
-            <td>„Meine Verehrung“, Klötze und Schinken, Berlin<br>
-            „Das Schiele-Projekt“, Projektraum sieben, Berlin<br>
-            „Ein Sommernachtstraum“, 30 Links, Berlin<br>
-            „The Big Draw“, Lange Nacht der Museen, Kunstgewerbemuseum, Berlin</td>
+            <td>„Meine Verehrung“, <a href="http://www.kloetzeundschinken.de/">Klötze und Schinken, Berlin</a><br>
+            „Das Schiele-Projekt“, <a href="http://www.nummer-sieben.de/sieben_content.html">Projektraum sieben, Berlin</a><br>
+            „Ein Sommernachtstraum“, <a href="http://www.30links.de/at30/30ausstellungen/">30 Links, Berlin</a><br>
+            „The Big Draw“, Lange Nacht der Museen, <a href="http://www.smb.museum/smb/kalender/details.php?objID=24326">Kunstgewerbemuseum, Berlin</a></td>
           </tr>
           <tr>
             <td class="year">2010</td>
-            <td>„Handzeichnugen und Druckgraphik“, Studio Bildende Kunst, Berlin<br>
-            „Auge, Hand und Sinne“, Atelier Laubbach, Ostrach-Laubbach</td>
+            <td>„Handzeichnungen und Druckgraphik“, Studio Bildende Kunst, Berlin<br>
+            „Auge, Hand und Sinne“, <a href="http://www.atelierlaubbach.de/kuenstler_rathmann.htm">Atelier Laubbach, Ostrach-Laubbach</a></td>
           </tr>
         </table>
       </div>
