@@ -272,7 +272,7 @@ ul.show {
 }
 
 .thumbs li a:hover {
-  border-color: rgba(1,1,1,0.07);
+  border-color: rgba(232,150,150,0.4);
 }
 
 img {
@@ -358,6 +358,10 @@ img {
   margin: 0px 0 500px -320px;
   position: absolute;
   padding: 50px 0 0 0;
+}
+
+.series-info p {
+  font-size: 14px;
 }
 
 .series-info div {
@@ -582,12 +586,12 @@ h4 a:hover, #buy-interest div a:hover {
 }
 
 .series-info div a {
- border-bottom: #999 2px solid;
+ border-bottom: #777 1px solid;
  padding: 1px;
 }
 
 .vita-table table a {
- border-bottom: #999 1px solid;
+ border-bottom: #777 1px solid;
  background-color: white;
 }
 
