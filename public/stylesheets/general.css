@@ -124,6 +124,12 @@ h3 span {
   cursor: pointer;
 }
 
+  .start h1 a {
+    width: 822px;
+    height: 168px;
+    display: block;
+  }
+
 .start h2 {
   display: block;
   text-indent: -99999px;
@@ -136,6 +142,12 @@ h3 span {
   left: 50%;
   cursor: pointer;
 }
+
+  .start h2 a {
+    width: 720px;
+    height: 96px;
+    display: block;
+  }
 
 .next,.prev {
   display: block;

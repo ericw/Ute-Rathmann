@@ -5,7 +5,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Ute Rathmann</title>
-	<meta name="generator" content="TextMate http://macromates.com/">
+  <% if @image %>
+    <meta name="title" content="Ute Rathmann – <%= @image.title %>" />
+    <meta name="medium" content="image" />
+    <meta name="description" content="<%= @image.description %>" />
+    <link rel="image_src" href="http://uterathmann.com<%= @image.public_thumb_path %>" / >
+  <% end %>
 	<meta name="author" content="Eric Wahlforss">
   <%= stylesheet_link_tag "general.css", :media => "all" %>
   <%= javascript_include_tag "jquery-1.4.min" %>
@@ -17,9 +22,9 @@
   <div id="header">
     <div id="pos-head"></div>
     <div id="header-inner">
-      <a href="#startseite" class="start">Startseite</a>
+      <a href="/" class="start">Startseite</a>
       <% @series.each_with_index do |s,i| %>
-        <a class="series-link" href="#<%= i+1 %>"><%= i+1 %> <span><%= s.title %></span></a>
+        <a class="series-link" href="<%= url_for s.images.first %>"><%= i+1 %> <span><%= s.title %></span></a>
       <% end %>
       <%= link_to "Vita",vita_url, :class => "vita" %>
       <%= link_to "Presse",presse_url, :class => "presse" %> 

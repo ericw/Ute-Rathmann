@@ -1,12 +1,12 @@
 <div class="series-container start">
-  <h1>Ute Rathmann</h1>
-  <h2>Zeichnungen Kostüme Collagen</h2>
-  <a href="#next" class="next">Weiter</a>
+  <h1><a href="<%= url_for @series.first.images.first %>">Ute Rathmann</a></h1>
+  <h2><a href="<%= url_for @series.first.images.first %>">Zeichnungen Kostüme Collagen</a></h2>
+  <a href="<%= url_for @series.first.images.first %>" class="next">Weiter</a>
 </div>
 <% @series.each_with_index do |s,i| %>
 <div class="series-container" id="series-<%= s.id %>" style="left:<%= i*1500 %>px;">
   <div class="series" style="width: <%= s.images.first.width+294 %>px;">
-    <a href="#prev" class="prev">Prev</a>
+    <a href="<%= s.higher_item.nil? ? "/" : url_for(s.higher_item.images.first) %>" class="prev">Prev</a>
     <h3><%= s.title %> <span><%= s.year %></span></h3>
     <div class="large-image">
     </div>
@@ -34,7 +34,7 @@
       <a href="#more" class="more-info">More info</a>
       <% end %>
     </div>
-    <a href="#next" class="next">Next</a>
+    <a href="<%= s.lower_item.nil? ? "/vita" : url_for(s.lower_item.images.first) %>" class="next">Next</a>
   </div>
   <% if s.series_info %>
   <div class="series-info" id="series-info-<%= s.series_info.id %>">
@@ -48,7 +48,7 @@
 
 <div class="series-container vita" style="left:5000px">
   <div class="page">
-    <a href="#prev" class="prev">Prev</a>
+    <a href="<%= url_for @series.last.images.first %>" class="prev">Prev</a>
     <h3>Vita</h3>
 
     <div class="vita-table">
@@ -138,13 +138,13 @@
       </div>
       <a href="#more" class="back">More info</a>
     </div>
-    <a href="#next" class="next">Next</a>
+    <a href="/presse" class="next">Next</a>
   </div>  
 </div>
 
 <div class="series-container presse" style="left:5000px">
   <div class="page">
-    <a href="#prev" class="prev">Prev</a>
+    <a href="/vita" class="prev">Prev</a>
     <h3>Presse</h3>
     <div class="vita-table">
       <blockquote>
@@ -159,13 +159,13 @@
         <a href="#series-info-3">Kleid und Kostüm »</a> | <a href="#series-info-1">Rokoko »</a> | <a href="#series-info-2">Engel »</a> | <a href="#series-info-4">Das Schiele - Projekt »</a> | <a href="#series-info-5">Das Kleid als Leinwand »</a>
       </p>
     </div>
-    <a href="#next" class="next">Next</a>
+    <a href="/kontakt" class="next">Next</a>
   </div>
 </div>
 
 <div class="series-container kontakt" style="left:5000px">
   <div class="page" style="width: 350px">
-    <a href="#prev" class="prev">Prev</a>
+    <a href="/presse" class="prev">Prev</a>
     <h3>Kontakt</h3>
     <form id="contact-form">
         <h5>Name</h5>

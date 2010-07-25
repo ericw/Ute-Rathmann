@@ -1,7 +1,17 @@
 class PagesController < ApplicationController
-  def vita; end
-  def presse; end
-  def kontakt; end
+  
+  def vita
+    @series = Series.find(:all, :order => 'position', :conditions => ["visible = ?", true])
+    render "series/index"    
+  end
+  
+  def presse
+    vita
+  end
+  
+  def kontakt
+    vita
+  end
   
   def send_contact_form
      if request.post?

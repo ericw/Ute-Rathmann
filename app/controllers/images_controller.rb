@@ -2,7 +2,8 @@ class ImagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
-    render :layout => false
+    @series = Series.find(:all, :order => 'position', :conditions => ["visible = ?", true])
+    render "series/index"
   end
 
   def buy

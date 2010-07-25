@@ -31,6 +31,9 @@ $(function() {
   $("ul.thumbs li:first-child a").addClass("selected");
   
   $("a.start,a.vita,a.presse,a.kontakt").click(function() {
+    if(history.pushState) {
+      history.pushState({},"Ute Rathmann",$(this).attr("href"));
+    }    
     scrollTo($(".series-container."+ this.className));
     return false;
   });
@@ -38,6 +41,9 @@ $(function() {
   $("#header a.series-link").click(function() {
     var idx = $("#header a").index(this)+1;
     scrollTo($(".series-container:nth-child("+ idx + ")"));
+    if(history.pushState) {
+      history.pushState({},"Ute Rathmann",$(this).attr("href"));
+    }
     return false;
   });
   
@@ -60,31 +66,65 @@ $(function() {
   
   // lazy load all images after main content has loaded
   $(window).load(function() {
-    $("ul.thumbs li:first-child a").click();
+    //lazy load images
+    $("ul.thumbs li:first-child a").each(function() {
+      loadImage(this);
+    });
 
-    // if there is a hash image-x-series-x then navigate there
-    if(window.location.hash.search(/image/) != -1) {
-      var infos = window.location.hash.split("-");
-      var imgId = infos[1];
-      var seriesId = infos[3];
+    // check if to navigate to an image, etc
+    if(location.pathname.search(/images/) != -1) {
+      var $imgLink = $("ul.thumbs a[href=" + location.pathname + "]");
+      var $imgSeries = $imgLink.parents(".series-container");
       $("#header").animate({top:0});
-      $("a#img-"+imgId).click();
-      scrollTo($("#series-"+ seriesId));
-      $("div.throbber").remove();
+      // if it's the first image in a series it's already being loaded, so no need to load again
+      if($imgLink.parents("li").prev().length != 0) {
+        loadImage($imgLink);        
+      }
+      scrollTo($imgSeries);
+    } else if (location.pathname.search(/kontakt|vita|presse/) != -1) {
+      scrollTo("div." + location.pathname.substr(1));      
     }
-
+    
   });
+
+  // html5 history
+  window.onpopstate = function(ev) {
+    
+    if(location.pathname.search(/images/) != -1) {
+      var $imgLink = $("ul.thumbs a[href=" + location.pathname + "]");
+      var $imgSeries = $imgLink.parents(".series-container");
+      $("#header").animate({top:0});
+      $imgLink.click();
+      scrollTo($imgSeries);
+      $("div.throbber").remove();
+    } else if (location.pathname.search(/kontakt|vita|presse/) != -1) {
+      scrollTo("div." + location.pathname.substr(1));      
+    } else if (location.pathname == "/") {
+      $("#header").animate({top:-20});
+      scrollTo("div.start");
+    }
+  };
   
   $("ul.thumbs a").click(function() {
-    $(this)
+    //check if pushstate and don't add entry if we're already at the same image
+    var args = $(this).attr("data").split(",");
+    if(history.pushState && $(this).attr("href") != location.pathname) {
+      history.pushState({},"Ute Rathmann",$(this).attr("href"));
+    }
+    loadImage(this);
+    return false;
+  });
+
+  function loadImage(imageLink) {
+    $(imageLink)
       .parents(".thumbs")
         .find("a").removeClass("selected").end()
       .end()
       .addClass("selected");
-    var args = $(this).attr("data").split(",");
-    var $series = $(this).parents("div.series");
+    var args = $(imageLink).attr("data").split(",");
+    var $series = $(imageLink).parents("div.series");
     var $img = $series.find(".large-image");
-    
+        
     $img.html("");
     
     // hide buy link if kaufen=false
@@ -94,6 +134,7 @@ $(function() {
     // hide dimensions if not set
     var $sizeInfo = $series.find(".size");
     args[5].length == 0 ? $sizeInfo.addClass("hidden") : $sizeInfo.removeClass("hidden");
+    
     
     // show throbber after 100ms wait for image to load
     var timer = setTimeout(function() {
@@ -122,10 +163,8 @@ $(function() {
       .find(".info:first h4").html(args[3]).end()
       .find(".info:first dd:nth-child(2)").html(args[4]).end()
       .find(".info:first dd:nth-child(4)").html(args[5]).end()
-      .find(".info:first dd:nth-child(6)").html(args[6]);
-    
-    return false;
-  });
+      .find(".info:first dd:nth-child(6)").html(args[6]);    
+  }
 
   // links under presse
   $(".presse p.links a").click(function() {
@@ -133,12 +172,16 @@ $(function() {
     return false;
   });
   
-  $("a.next, a[href=#next], .start h1, .start h2").click(function() {
-    scrollTo($(this).parents("div.series-container").next());
+  $("a.next, a[href=#next], .start h1 a, .start h2 a").click(function() {
+    var nextCont = $(this).parents("div.series-container").next();
+    scrollTo(nextCont);
+    if(history.pushState) {
+      history.pushState({},'Ute Rathmann',$(this).attr("href"));
+    }
     return false;
   });
   
-  $(".start h1,.start h2,a.next").click(function() {
+  $(".start h1 a,.start h2 a,a.next").click(function() {
     $("#header").animate({top:0});
   });
 
@@ -161,6 +204,9 @@ $(function() {
   
   $("a.prev").click(function() {
     scrollTo($(this).parents("div.series-container").prev());
+    if(history.pushState) {
+      history.pushState({},'Ute Rathmann',$(this).attr("href"));
+    }
     return false;
   });
 
@@ -200,8 +246,6 @@ $(function() {
     return false;
   });
   
-  
-  
   // share
   $(".share-link").click(function() {
     var img = $(this).parents(".sidebar").find(".thumbs a.selected");
@@ -240,17 +284,5 @@ $(function() {
   //   scrollDown($("#ausstellungen"));
   //   return false;    
   // });
-
-  // function fadeInImages() {
-  //   var cnt = 0;
-  //   $("li").animate({opacity:1},500);
-  //   $("img").each(function(i){
-  //     cnt += 50;
-  //     var self = this;
-  //     setTimeout(function() {
-  //       $(self).animate({opacity:1},1000,"easeInQuad");
-  //     },cnt);
-  //   });    
-  // }
 
 });
