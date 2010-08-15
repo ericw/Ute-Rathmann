@@ -12,6 +12,10 @@ class PagesController < ApplicationController
   def kontakt
     vita
   end
+
+  def impressum
+    @series = Series.find(:all, :order => 'position', :conditions => ["visible = ?", true])
+  end
   
   def send_contact_form
      if request.post?

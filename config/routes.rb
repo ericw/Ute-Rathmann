@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     route.vita "/vita", :action => 'vita'
     route.presse "/presse", :action => 'presse'
     route.kontakt "/kontakt", :action => 'kontakt'
+    route.impressum "/impressum", :action => 'impressum'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

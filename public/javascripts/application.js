@@ -14,10 +14,12 @@ $(function() {
     $posHead.width(headerWidth/pageCount);
     $("#header a").width(headerWidth/pageCount);
     $("#header a:last").width($("#header a:last").width()-1);
+        
     $(".series-container").each(function(i) {
       $(this)
         .width($("body").width())
-        .css("left",($("body").width())*i);
+        .css("left",($("body").width())*i)
+        .css("padding-top",(window.innerHeight/2)-400); // adjust for large windows
     });    
   }
 
@@ -249,7 +251,8 @@ $(function() {
   // share
   $(".share-link").click(function() {
     var img = $(this).parents(".sidebar").find(".thumbs a.selected");
-    window.open('http://facebook.com/sharer.php?u=http%3A%2F%2Futerathmann.com' + encodeURIComponent(img.attr('href')), "_blank");
+    var wind = window.open('http://facebook.com/sharer.php?u=http%3A%2F%2Futerathmann.com' + encodeURIComponent(img.attr('href')), "fbshare","width=600,height=350");
+    //wind.moveTo(200)
     return false;
   });
   

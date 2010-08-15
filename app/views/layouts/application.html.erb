@@ -1,15 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
-
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en" xmlns:og="http://opengraphprotocol.org/schema/">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Ute Rathmann</title>
   <% if @image %>
-    <meta name="title" content="Ute Rathmann – <%= @image.title %>" />
-    <meta name="medium" content="image" />
-    <meta name="description" content="<%= @image.description %>" />
-    <link rel="image_src" href="http://uterathmann.com<%= @image.public_thumb_path %>" / >
+    <meta property="og:title" content="Ute Rathmann – <%= @image.title %>"/>
+    <meta property="og:description" content="<%= @image.description %>"/>
+    <meta property="og:image" content="http://uterathmann.com<%= @image.public_thumb_path %>"/>
   <% end %>
 	<meta name="author" content="Eric Wahlforss">
   <%= stylesheet_link_tag "general.css", :media => "all" %>
@@ -27,8 +24,9 @@
         <a class="series-link" href="<%= url_for s.images.first %>"><%= i+1 %> <span><%= s.title %></span></a>
       <% end %>
       <%= link_to "Vita",vita_url, :class => "vita" %>
-      <%= link_to "Presse",presse_url, :class => "presse" %> 
+      <%= link_to "Presse",presse_url, :class => "presse" %>
       <%= link_to "Kontakt",kontakt_url, :class => "kontakt" %>
+      <a href="http://blog.uterathmann.com">Blog</a>
     </div>
   </div>
   <div id="main">

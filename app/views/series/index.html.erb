@@ -1,7 +1,9 @@
 <div class="series-container start">
-  <h1><a href="<%= url_for @series.first.images.first %>">Ute Rathmann</a></h1>
-  <h2><a href="<%= url_for @series.first.images.first %>">Zeichnungen Kostüme Collagen</a></h2>
-  <a href="<%= url_for @series.first.images.first %>" class="next">Weiter</a>
+  <div class="start-container">
+    <h1><a href="<%= url_for @series.first.images.first %>">Ute Rathmann</a></h1>
+    <h2><a href="<%= url_for @series.first.images.first %>">Zeichnungen Kostüme Collagen</a></h2>
+    <a href="<%= url_for @series.first.images.first %>" class="next">Weiter</a>
+  </div>
 </div>
 <% @series.each_with_index do |s,i| %>
 <div class="series-container" id="series-<%= s.id %>" style="left:<%= i*1500 %>px;">
@@ -28,7 +30,7 @@
         </dl>
       </div>
       <div class="info">
-        <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufen</a> | </span><a href="#share" class="share-link">Share bei Facebook</a> </h4>
+        <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufen</a> | </span><a href="#share" class="share-link" title="Share bei Facebook">Share</a> </h4>
       </div>
       <% if s.series_info %>
       <a href="#more" class="more-info">More info</a>
@@ -37,10 +39,12 @@
     <a href="<%= s.lower_item.nil? ? "/vita" : url_for(s.lower_item.images.first) %>" class="next">Next</a>
   </div>
   <% if s.series_info %>
-  <div class="series-info" id="series-info-<%= s.series_info.id %>">
-    <h3><%= s.series_info.title %></h3>
-    <div><%= s.series_info.description %></div>
-    <a href="#more" class="back">More info</a>
+  <div class="series-info-container" id="series-info-<%= s.series_info.id %>">
+    <div class="series-info">
+      <h3><%= s.series_info.title %></h3>
+      <div><%= s.series_info.description %></div>
+      <a href="#more" class="back">More info</a>
+    </div>
   </div>
   <% end %>
 </div>
@@ -50,8 +54,8 @@
   <div class="page">
     <a href="<%= url_for @series.last.images.first %>" class="prev">Prev</a>
     <h3>Vita</h3>
-
     <div class="vita-table">
+      <img src="/images/ute.jpg" width="170" height="219" alt="ute" class="portrait">
       <table>
       <tr>
         <td class="year">1975</td><td>Geboren in Ratzeburg</td>
@@ -85,58 +89,60 @@
     
     <a href="#more" class="more-info">More info</a>
     
-    <div class="series-info">
-      <h3>Einzel- und Gruppenausstellungen</h3>
-      <div class="vita-table ausstellungen">
-        <table>
-          <tr>
-            <td class="year">2001</td>
-            <td>„Weißenseer Fenster - Arten der Zeichnung“, Verlagsgebäude der Berliner Zeitung</td>
-          </tr>
-          <tr>
-            <td class="year">2002</td>
-            <td>Galerie M in Berlin-Marzahn</td>
-          </tr>
-          <tr>
-            <td class="year">2003</td>
-            <td>„Figur und Kleid“, Studio Bildende Kunst, Kulturamt Lichtenberg von Berlin</td>
-          </tr>
-          <tr>
-            <td class="year">2004</td>
-            <td>„Art Club“, Kunstverein Burgwedel/ Isernhagen<br>
-            Galerie Bilderwelten, Berlin- Prenzlauer Berg</td>
-          </tr>
-          <tr>
-            <td class="year">2006</td>
-            <td>„Christine Perthen und Schüler“(Gedenkausstellung), Kunsthochschule Berlin- Weißensee<br>
-            „Anonyme Zeichner 2“, <a href="http://www.anke-becker.de/anonyme_zeichner.576.0.html">Galerie Blütenweiss, Berlin-Mitte</a><br>
-            „Kleid und Kostüm“, Handzeichnungen, Galerie in der Lithowerkstatt, Berlin-Treptow</td>
-          </tr>
-          <tr>
-            <td class="year">2007</td>
-            <td>„Mode meets Malen - Modemiezen malen“, <a href="http://www.kloetzeundschinken.de/">Merz, Schau!raum für Unikate, Berlin</a><br>
-            „Kunst trifft Mode“, Galerie k20, Berlin</td>
-          </tr>
-          <tr>
-            <td class="year">2008</td>
-            <td>Plakat und Kostümentwürfe, <a href="http://www.theater-im-palais.de/">Theater im Palais, Berlin</a><br>
-            „24“, Galerie k20, Berlin</td>
-          </tr>
-          <tr>
-            <td class="year">2009</td>
-            <td>„Meine Verehrung“, <a href="http://www.kloetzeundschinken.de/">Klötze und Schinken, Berlin</a><br>
-            „Das Schiele-Projekt“, <a href="http://www.nummer-sieben.de/sieben_content.html">Projektraum sieben, Berlin</a><br>
-            „Ein Sommernachtstraum“, <a href="http://www.30links.de/at30/30ausstellungen/">30 Links, Berlin</a><br>
-            „The Big Draw“, Lange Nacht der Museen, <a href="http://www.smb.museum/smb/kalender/details.php?objID=24326">Kunstgewerbemuseum, Berlin</a></td>
-          </tr>
-          <tr>
-            <td class="year">2010</td>
-            <td>„Handzeichnungen und Druckgraphik“, Studio Bildende Kunst, Berlin<br>
-            „Auge, Hand und Sinne“, <a href="http://www.atelierlaubbach.de/kuenstler_rathmann.htm">Atelier Laubbach, Ostrach-Laubbach</a></td>
-          </tr>
-        </table>
+    <div class="series-info-container">
+      <div class="series-info">
+        <h3>Einzel- und Gruppenausstellungen</h3>
+        <div class="vita-table ausstellungen">
+          <table>
+            <tr>
+              <td class="year">2001</td>
+              <td>„Weißenseer Fenster - Arten der Zeichnung“, Verlagsgebäude der Berliner Zeitung</td>
+            </tr>
+            <tr>
+              <td class="year">2002</td>
+              <td>Galerie M in Berlin-Marzahn</td>
+            </tr>
+            <tr>
+              <td class="year">2003</td>
+              <td>„Figur und Kleid“, Studio Bildende Kunst, Kulturamt Lichtenberg von Berlin</td>
+            </tr>
+            <tr>
+              <td class="year">2004</td>
+              <td>„Art Club“, Kunstverein Burgwedel/ Isernhagen<br>
+              Galerie Bilderwelten, Berlin- Prenzlauer Berg</td>
+            </tr>
+            <tr>
+              <td class="year">2006</td>
+              <td>„Christine Perthen und Schüler“(Gedenkausstellung), Kunsthochschule Berlin- Weißensee<br>
+              „Anonyme Zeichner 2“, <a href="http://www.anke-becker.de/anonyme_zeichner.576.0.html" target="_blank">Galerie Blütenweiss, Berlin-Mitte</a><br>
+              „Kleid und Kostüm“, Handzeichnungen, Galerie in der Lithowerkstatt, Berlin-Treptow</td>
+            </tr>
+            <tr>
+              <td class="year">2007</td>
+              <td>„Mode meets Malen - Modemiezen malen“, <a href="http://www.kloetzeundschinken.de/" target="_blank">Merz, Schau!raum für Unikate, Berlin</a><br>
+              „Kunst trifft Mode“, Galerie k20, Berlin</td>
+            </tr>
+            <tr>
+              <td class="year">2008</td>
+              <td>Plakat und Kostümentwürfe, <a href="http://www.theater-im-palais.de/" target="_blank">Theater im Palais, Berlin</a><br>
+              „24“, Galerie k20, Berlin</td>
+            </tr>
+            <tr>
+              <td class="year">2009</td>
+              <td>„Meine Verehrung“, <a href="http://www.kloetzeundschinken.de/" target="_blank">Klötze und Schinken, Berlin</a><br>
+              „Das Schiele-Projekt“, <a href="http://www.nummer-sieben.de/sieben_content.html" target="_blank">Projektraum sieben, Berlin</a><br>
+              „Ein Sommernachtstraum“, <a href="http://www.30links.de/at30/30ausstellungen/" target="_blank">30 Links, Berlin</a><br>
+              „The Big Draw“, Lange Nacht der Museen, <a href="http://www.smb.museum/smb/kalender/details.php?objID=24326" target="_blank">Kunstgewerbemuseum, Berlin</a></td>
+            </tr>
+            <tr>
+              <td class="year">2010</td>
+              <td>„Handzeichnungen und Druckgraphik“, Studio Bildende Kunst, Berlin<br>
+              „Auge, Hand und Sinne“, <a href="http://www.atelierlaubbach.de/kuenstler_rathmann.htm" target="_blank">Atelier Laubbach, Ostrach-Laubbach</a></td>
+            </tr>
+          </table>
+        </div>
+        <a href="#more" class="back">More info</a>
       </div>
-      <a href="#more" class="back">More info</a>
     </div>
     <a href="/presse" class="next">Next</a>
   </div>  
@@ -150,8 +156,8 @@
       <blockquote>
         <p>„Ute Rathmanns Zeichnungen hier sind ausschließlich vor dem Modell entstanden, vor der Natur (also nicht nach ihr). Doch die eher eindeutige Darstellung des Modells, des ganzen Gegenüber, hat sie aufgegeben zugunsten einer Mischform: Genaues im Ungenauen, sich Auflösenden. Manchmal gibt es sehr naturnahe Köpfe bei ihr, vereinzelt Hände, denen sich freie rhythmische Linien aus der Gegend des Informel bis zur Überlagerung nähern. Beinernes wie Körper, Schädel, zwingt sie zur „Maßtreue“, aber Gewand, Kleid, Stoff, Tuch, Mütze erlauben ihr, zeichnerisch auszuufern, entlassen sie in die totale graphische Freiheit – in die FREIE ZEICHNUNG, die unvernünftige, schönheitstrunkene, von jedem Zweck befreite.“</p>
         <p class="credit">
-        <strong><a href="http://www.kh-berlin.de/index.php5?roleID=&amp;groupID=4&amp;personID=1109&amp;Action=showGroupPerson">Prof. Christine Perthen</a></strong><br>
-        Auszug aus einem Text für das Heft „Zeichnung“, eine Publikation der Kunsthochschule <a href="http://www.kh-berlin.de/">Berlin-Weißensee</a> (2002/2003)
+        <strong><a href="http://www.kh-berlin.de/index.php5?roleID=&amp;groupID=4&amp;personID=1109&amp;Action=showGroupPerson" target="_blank">Prof. Christine Perthen</a></strong><br>
+        Auszug aus einem Text für das Heft „Zeichnung“, eine Publikation der Kunsthochschule <a href="http://www.kh-berlin.de/" target="_blank">Berlin-Weißensee</a> (2002/2003)
         </p>
       </blockquote>
       <h5>Texte zur Ausstellungen</h5>
@@ -184,15 +190,19 @@
       <h4>Ute Rathmann</h4>
       <p>
         <strong>Mail</strong> <a href="mailto:ute@uterathmann.com">ute@uterathmann.com</a><br>
-        <strong>Facebook</strong> <a href="http://facebook.com/urathmann">facebook.com/urathmann</a><br>
+        <strong>Facebook</strong> <a href="http://facebook.com/urathmann" target="_blank">facebook.com/urathmann</a><br>
         <strong>Tel</strong> 01577 - 395 79 59
       </p>
       <p>
         Alle Bilder © Ute Rathmann 2009-2010<br>
         Alle Rechte vorbehalten / All rights reserved
       </p>
+      <p><a href="/impressum">Impressum »</a></p>
     </div>
   </div>
+</div>
+
+<div class="series-container blog" style="left:5000px">
 </div>
 
 <div id="buy-interest">

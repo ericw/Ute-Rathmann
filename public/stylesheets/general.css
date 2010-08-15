@@ -149,6 +149,10 @@ h3 span {
     display: block;
   }
 
+.start-container {
+  position:relative
+}
+
 .next,.prev {
   display: block;
   text-indent: -99999px;
@@ -363,8 +367,13 @@ img {
   background-position: -68px -69px;
 }
 
+.series-info-container {
+/*  top: 1500px;
+  position: absolute;*/
+  margin-top: 1500px;
+}
+
 .series-info {
-  top: 1500px;
   left: 50%;
   width: 640px;
   margin: 0px 0 500px -320px;
@@ -387,11 +396,26 @@ img {
   background: #F6F6F6;
 }
 
+.share-link {
+  background: url(/images/facebook.png) no-repeat 0 0;
+  padding: 4px 0 0 25px;
+}
+
+.share-link:hover {
+  border-bottom-color: white;
+  text-decoration: underline;
+}
+
 .vita-table {
   margin-top: 40px;
   background: white;
   border: 12px solid white;
   padding: 20px;
+}
+
+img.portrait {
+  float: right;
+  margin: 0 -100px 0 0;
 }
 
 .vita-table.ausstellungen {
