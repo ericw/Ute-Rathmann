@@ -18,12 +18,15 @@ $(function() {
     $(".series-container").each(function(i) {
       $(this)
         .width($("body").width())
-        .css("left",($("body").width())*i)
-        .css("padding-top",(window.innerHeight/2)-400); // adjust for large windows
-    });    
+        .css("left",($("body").width())*i);
+      if(!(navigator.appName.indexOf("Microsoft")!=-1)) {
+        $(this)
+          .css("padding-top",(window.innerHeight/2)-400); // adjust for large windows        
+      }
+    });
   }
 
-  $(document).scroll(function() {
+  $(window).scroll(function() {
     $posHead.css("left",Math.floor(($(window).scrollLeft()/$(document).width())*headerWidth));
   });
   
@@ -69,7 +72,7 @@ $(function() {
   // lazy load all images after main content has loaded
   $(window).load(function() {
     //lazy load images
-    $("ul.thumbs li:first-child a").each(function() {
+    $("ul.thumbs li:first-child a:first").each(function() {
       loadImage(this);
     });
 
@@ -136,7 +139,6 @@ $(function() {
     // hide dimensions if not set
     var $sizeInfo = $series.find(".size");
     args[5].length == 0 ? $sizeInfo.addClass("hidden") : $sizeInfo.removeClass("hidden");
-    
     
     // show throbber after 100ms wait for image to load
     var timer = setTimeout(function() {
