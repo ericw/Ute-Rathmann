@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+  caches_page :show
 
   def show
     @image = Image.find(params[:id])

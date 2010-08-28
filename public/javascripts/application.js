@@ -71,7 +71,7 @@ $(function() {
   
   // lazy load all images after main content has loaded
   $(window).load(function() {
-    
+    // eliminate buggy flickyness
     $(".series-container").css({'visibility':'visible'});
     
     //lazy load images
