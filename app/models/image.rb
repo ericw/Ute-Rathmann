@@ -1,4 +1,6 @@
 class Image < ActiveRecord::Base
+  require 'base64'
+  
   belongs_to :series
   acts_as_list :scope => :series
 
@@ -13,6 +15,10 @@ class Image < ActiveRecord::Base
 
   def public_thumb_path
     "/images/thumbs/#{filename_thumb}"
+  end
+  
+  def base64_version
+    Base64.encode64(File.open("#{RAILS_ROOT}/public/images/full/#{self.filename}").read)
   end
   
   # save the full size image

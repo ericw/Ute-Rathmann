@@ -1,7 +1,7 @@
 class Admin::SeriesController < ApplicationController
   layout "admin"
 
-  USER_ID, PASSWORD = "ute", "wettermann"
+  USER_ID, PASSWORD = "ute", "wettermann?"
 
   # Require authentication only for edit and delete operation
   before_filter :authenticate, :only => [ :index ]
