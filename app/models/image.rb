@@ -18,7 +18,7 @@ class Image < ActiveRecord::Base
   end
   
   def base64_version
-    Base64.encode64(File.open("#{RAILS_ROOT}/public/images/full/#{self.filename}").read)
+    Base64.encode64(File.open("#{RAILS_ROOT}/public/images/thumbs/#{self.filename}").read)
   end
   
   # save the full size image
