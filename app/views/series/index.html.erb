@@ -6,7 +6,7 @@
   </div>
 </div>
 <% @series.each_with_index do |s,i| %>
-<div class="series-container" id="series-<%= s.id %>" style="left:<%= i*1500 %>px;">
+<div class="series-container" id="series-<%= s.id %>" style="left:<%= i*1500 %>px;visibility:hidden">
   <div class="series" style="width: <%= s.images.first.width+294 %>px;">
     <a href="<%= s.higher_item.nil? ? "/" : url_for(s.higher_item.images.first) %>" class="prev">Prev</a>
     <h3><%= s.title %> <span><%= s.year %></span></h3>

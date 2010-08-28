@@ -71,6 +71,9 @@ $(function() {
   
   // lazy load all images after main content has loaded
   $(window).load(function() {
+    
+    $(".series-container").css({'visibility':'visible'});
+    
     //lazy load images
     $("ul.thumbs li:first-child a").each(function() { // :first for ie
       loadImage(this);
