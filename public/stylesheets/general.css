@@ -412,8 +412,9 @@ img {
   display: inline-block;
   height: 16px;
   -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
   position: relative;
-  top: -2px;
+  top: -3px;
 }
 
 .buy-link:hover {
