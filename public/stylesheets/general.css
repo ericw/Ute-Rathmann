@@ -232,7 +232,7 @@ a:hover {
 .info {
   background: white;  
   font-size: 12px;
-  padding: 12px;
+  padding: 0px;
   margin: 0 0 12px 0;
 }
 
@@ -399,13 +399,43 @@ img {
 }
 
 .share-link {
-  background: url(/images/facebook.png) no-repeat 0 0;
-  padding: 4px 0 0 25px;
+/*  background: url(/images/facebook.png) no-repeat 0 0;
+  padding: 4px 0 0 25px;*/
 }
 
-.share-link:hover {
-  border-bottom-color: white;
-  text-decoration: underline;
+.buy-link {
+  border : 1px solid #aaa;
+  background : #eee;
+  font-size: 11px;
+  font-weight: normal;
+  padding: 2px 5px 0;
+  display: inline-block;
+  height: 16px;
+  -moz-border-radius: 4px;
+  position: relative;
+  top: -2px;
+}
+
+.buy-link:hover {
+  background : #ddd;
+  border-color: #888;  
+}
+
+.share-link.twitter {
+  position: relative;
+  top: -2px;
+  background: url(http://platform0.twitter.com/widgets/images/tweet.png) no-repeat 0 0;
+  color: transparent;
+  width: 55px;
+  height: 20px;
+  margin: 0 5px 0 5px;
+  display: inline-block;
+}
+
+.share-link.twitter:hover {
+  background-position: 0 -21px;
+  text-decoration: none;
+  border-bottom: 0;
 }
 
 .vita-table {
@@ -571,13 +601,13 @@ ul:after {
   visibility: hidden;  
 }
 
-h4 a, #buy-interest div a {
+#buy-interest div a {
   -webkit-transition: border-color .7s linear;
   -moz-transition: border-color .7s linear;
   border-bottom: 2px solid transparent;
 }
 
-h4 a:hover, #buy-interest div a:hover {
+#buy-interest div a:hover {
   border-bottom: 2px solid #333;
 }
 

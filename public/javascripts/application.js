@@ -260,7 +260,15 @@ $(function() {
     //wind.moveTo(200)
     return false;
   });
-  
+
+  // share on twitter
+  $(".share-link.twitter").click(function() {
+    var img = $(this).parents(".sidebar").find(".thumbs a.selected");
+    var wind = window.open('http://twitter.com/share?url=http%3A%2F%2Futerathmann.com' + encodeURIComponent(img.attr('href')), "fbshare","width=600,height=300");
+    //wind.moveTo(200)
+    return false;
+  });
+
   // buy interest
   $(".buy-link").click(function() {
     var data = $(this).parents(".sidebar").find("li a.selected").attr("data").split(",");

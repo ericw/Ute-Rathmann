@@ -30,7 +30,7 @@
         </dl>
       </div>
       <div class="info">
-        <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufen</a> | </span><a href="#share" class="share-link" title="Share bei Facebook">Share</a> </h4>
+        <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufen</a></span><a href="#share" class="share-link twitter" title="Share bei Twitter">Twitter</a><fb:like layout="button_count" width="100" font="arial"></fb:like></h4>
       </div>
       <% if s.series_info %>
       <a href="#more" class="more-info">More info</a>
@@ -222,3 +222,17 @@
       </div>
   </form>
 </div>
+
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: 'your app id', status: true, cookie: true,
+             xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
