@@ -1,7 +1,7 @@
 class Mailer < ActionMailer::Base
     
   def message(author)
-    @recipients       = "eric@wahlforss.com"
+    @recipients       = "ute@uterathmann.com"
     @from             = author[:email]
     @subject          = "New message"
     @body['name']     = author[:name]
@@ -10,7 +10,7 @@ class Mailer < ActionMailer::Base
   end
 
   def buy(buy)
-    @recipients       = "eric@wahlforss.com"
+    @recipients       = "ute@uterathmann.com"
     @from             = buy[:email]
     @subject          = "Kaufinteresse"
     @body['id']     = buy[:id]

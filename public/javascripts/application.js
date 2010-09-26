@@ -221,24 +221,21 @@ $(function() {
     $("#header").animate({top:-20});
   });
 
-  //Beginning fading in logo if on live server if not seen the intro in 1 day
-  if(true || location.href.split(".").length > 1 && !$.cookie('viewed_intro') == '1'){
-    $.cookie('viewed_intro', '1', { expires: 1 });
-    $("a[href=#next]:first").css({opacity:0});
-    $.each($(".start h1, .start h2"),function(i) {
-      $(this).data("width",$(this).width());
-      var callback = i == 0 ? null : function() {$("a[href=#next]:first").animate({opacity:1},800,"easeInExpo");};
-      $(this)
-        .css({opacity:0,width:0})
+  // intro anim
+  $("a[href=#next]:first").css({opacity:0});
+  $.each($(".start h1, .start h2,a.next:first"),function(i) {
+    $(this).data("width",$(this).width());
+    var callback = i == 0 ? null : function() {$("a[href=#next]:first").animate({opacity:1},800,"easeInExpo");};
+    $(this)
+      .css({opacity:0,width:0})
 
-      var self = this;
+    var self = this;
 
-      // wait until stuff is loaded before fading in
-      $(window).load(function() {
-        $(self).animate({opacity: 1.0, width: $(self).data("width")}, 800, "easeInBack",callback);
-      })
-    });
-  }
+    // wait until stuff is loaded before fading in
+    $(window).load(function() {
+      $(self).animate({opacity: 1.0, width: $(self).data("width")}, 800, "easeInBack",callback);
+    })
+  });
 
   // kontakt form
   $("#contact-form").submit(function() {
