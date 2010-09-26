@@ -6,7 +6,7 @@ $(function() {
 
   // prepare the container blocks
   function prepareForDisplay() {
-    if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+    if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) { // chrome scroll bug workaround
       $("body").css({'overflowX':'auto','overflowY':'auto'});
     };
     headerWidth = $("#header").width();
