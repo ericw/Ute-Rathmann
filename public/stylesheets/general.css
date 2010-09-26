@@ -11,6 +11,12 @@ body {
   -khtml-user-select : none;
 }
 
+/* circumvent weird scrolling chrome */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
 #main {
   margin: 10px;
 }

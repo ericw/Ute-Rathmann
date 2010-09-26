@@ -6,9 +6,9 @@ $(function() {
 
   // prepare the container blocks
   function prepareForDisplay() {
-    // if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
-    //   $("body").css({'overflowX':'auto'});
-    // };
+    if(navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+      $("body").css({'overflowX':'auto','overflowY':'auto'});
+    };
     headerWidth = $("#header").width();
     $posHead.css("left",Math.floor(($(window).scrollLeft()/$(document).width())*headerWidth));
     $posHead.width(headerWidth/pageCount);
