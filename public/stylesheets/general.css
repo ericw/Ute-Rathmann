@@ -405,7 +405,9 @@ img {
 
 .buy-link {
   border : 1px solid #aaa;
-  background : #eee;
+  background-color: #eee;
+  background-image: -moz-linear-gradient(center bottom,rgb(199,199,199) 5%,rgb(237,237,237) 53%);
+  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.05, rgb(199,199,199)),color-stop(0.53, rgb(237,237,237)));
   font-size: 11px;
   font-weight: normal;
   padding: 2px 5px 0;
@@ -429,7 +431,7 @@ img {
   color: transparent;
   width: 55px;
   height: 20px;
-  margin: 0 5px 0 5px;
+  margin: 0 15px 0 15px;
   display: inline-block;
 }
 
@@ -444,6 +446,10 @@ img {
   background: white;
   border: 12px solid white;
   padding: 20px;
+}
+
+.vita-table.narrow {
+  margin-top: 0px;
 }
 
 img.portrait {
@@ -483,11 +489,13 @@ table td {
   font-size: 13px;
 }
 
-.series-info blockquote p.credit {
-  font-style: normal;
-  font-size: 12px;  
-  border-left: 7px solid transparent;
-  padding-left: 1em;
+.series-container blockquote {
+  padding: 0px;
+  margin: 0;
+}
+
+.series-container blockquote p.credit {
+  padding-bottom: 40px;
 }
 
 .series-container .links {
