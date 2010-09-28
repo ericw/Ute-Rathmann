@@ -33,7 +33,7 @@
         <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufen</a></span><a href="#share" class="share-link twitter" title="Share bei Twitter">Twitter</a><fb:like layout="button_count" width="100" font="arial"></fb:like></h4>
       </div>
       <% if s.series_info %>
-      <a href="#more" class="more-info">More info</a>
+      <a href="#more" class="more-info" title="Mehr">More info</a>
       <% end %>
     </div>
     <a href="<%= s.lower_item.nil? ? "/vita" : url_for(s.lower_item.images.first) %>" class="next">Next</a>
@@ -87,7 +87,7 @@
       </table>
     </div>
     
-    <a href="#more" class="more-info">More info</a>
+    <a href="#more" class="more-info" title="Einzel- und Gruppenausstellungen">More info</a>
     
     <div class="series-info-container">
       <div class="series-info">
@@ -137,7 +137,7 @@
             <tr>
               <td class="year">2010</td>
               <td>„Handzeichnungen und Druckgraphik“, <a href="http://www.kulturring.org/galerien.php" target="_blank">Studio Bildende Kunst</a>, Berlin<br>
-              „Auge, Hand und Sinne“, <a href="http://www.atelierlaubbach.de/kuenstler_rathmann.htm" target="_blank">Atelier Laubbach</a>, Ostrach-Laubbach</td>
+              „Auge, Hand und Sinne“, <a href="http://www.atelierlaubbach.de/kuenstler_rathmann.htm" target="_blank">atelier laubbach</a>, Ostrach-Laubbach</td>
             </tr>
           </table>
         </div>
