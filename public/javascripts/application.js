@@ -60,7 +60,7 @@ $(function() {
     $('html, body').animate({
       scrollLeft: $(el).offset().left,
       scrollTop: $(el).offset().top
-    }, 500,"easeOutCubic");    
+    }, {duration:500,easing:"easeOutCubic",queue:true}); //500,"easeOutCubic");    
   }
 
   function scrollDown(el) {
@@ -293,9 +293,25 @@ $(function() {
     return false;
   });
   
-  // $(".series-container.vita .more-info").click(function() {
-  //   scrollDown($("#ausstellungen"));
-  //   return false;    
+  // keyboard control
+  // $(document).bind(($.browser.mozilla ? 'keypress' : 'keydown'), function(ev) {
+  //   if (ev.keyCode === 39) { // arrow next
+  //       var idx = Math.floor(($("body").scrollLeft()/$(document).width())*pageCount);
+  //       var nextCont = $($("div.series-container")[idx+1]);
+  //       scrollTo(nextCont);
+  //       if(history.pushState) {
+  //         history.pushState({},'Ute Rathmann',nextCont.prev().find("a.next").attr("href"));
+  //       }
+  //       ev.preventDefault();
+  //     } else if (ev.keyCode === 37) { // arrow prev
+  //       var idx = Math.floor(($("body").scrollLeft()/$(document).width())*pageCount);
+  //       var nextCont = $($("div.series-container")[idx-1]);
+  //       scrollTo(nextCont);
+  //       if(history.pushState) {
+  //         history.pushState({},'Ute Rathmann',nextCont.next().find("a.prev").attr("href"));
+  //       }
+  //       ev.preventDefault();
+  //     }
   // });
 
 });
