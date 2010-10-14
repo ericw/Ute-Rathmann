@@ -423,6 +423,7 @@ img {
   -webkit-border-radius: 4px;
   position: relative;
   top: -3px;
+  display:none;
 }
 
 .buy-link:hover {
@@ -437,7 +438,7 @@ img {
   color: transparent;
   width: 55px;
   height: 20px;
-  margin: 0 15px 0 15px;
+  margin: 0 15px 0 0px;
   display: inline-block;
 }
 
