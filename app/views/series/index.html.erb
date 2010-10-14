@@ -30,7 +30,7 @@
         </dl>
       </div>
       <div class="info">
-        <h4><span class="<% unless s.images.first.kaufen %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufen</a></span><a href="#share" class="share-link twitter" title="Share bei Twitter">Twitter</a><fb:like layout="button_count" width="100" font="arial"></fb:like></h4>
+        <h4><span class="<% if s.images.first.kaufen || true %>hidden<% end %> hide-buy-link"><a href="#buy" class="buy-link">Kaufen</a></span><a href="#share" class="share-link twitter" title="Share bei Twitter">Twitter</a><fb:like layout="button_count" width="100" font="arial"></fb:like></h4>
       </div>
       <% if s.series_info %>
       <a href="#more" class="more-info" title="Mehr">More info</a>
